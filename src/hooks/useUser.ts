@@ -15,6 +15,8 @@ export const useUser = () => {
   }, [])
 
   const filter = (value: string) => {
+    console.log(value);
+
     const usersFiltered = users.filter((user: IUser) => {
       return (
         user.name.toLowerCase().includes(value.toLowerCase()) ||
@@ -23,6 +25,8 @@ export const useUser = () => {
         user.phone.toLowerCase().includes(value.toLowerCase())
       )
     })
+    console.log(usersFiltered);
+
     setTemp(usersFiltered)
   }
 

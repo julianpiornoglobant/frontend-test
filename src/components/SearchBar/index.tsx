@@ -10,8 +10,7 @@ export const SearchBar = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     searchInput.onChange(e)
-    filter(searchInput.value)
-
+    filter(e.target.value)
   }
 
   return (

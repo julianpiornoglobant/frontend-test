@@ -17,9 +17,6 @@ export const Edit = ({ user, show }: EditProps) => {
   const inputPhone = useField({ type: 'text', init: phone })
   const inputAddress = useField({ type: 'text', init: address })
 
-  console.log({ user });
-
-
   const handleClick = () => {
     console.log(inputName.value, inputEmail.value, inputPhone.value, inputAddress.value)
     editUser({ id: user.id, name: inputName.value, email: inputEmail.value, phone: inputPhone.value, address: inputAddress.value, profile: user.profile })
