@@ -1,0 +1,50 @@
+.edit{
+  background-color: var(--gray-color);
+  width: 30rem;
+  height: 30rem;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: calc( 50% - 15rem);
+  left: calc( 50% - 15rem);
+  opacity: 0;
+  transition: all 0.5s ease;
+  border-radius: 1rem;
+  z-index: -1;
+  box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.3);
+}
+.edit input{
+  outline: none;
+  border: none;
+  width: 70%;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+.edit h2{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.edit button{
+  outline: none;
+  border: none;
+  width: 30%;
+  padding: .5rem;
+  border-radius: .5rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.edit button:hover{
+  background-color: var(--white-color);
+  color: var(--primary-color);
+}
+.visible{
+  opacity: 1;
+  
+  z-index: 100;
+ }

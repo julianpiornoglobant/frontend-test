@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { List } from './components/List';
+import { SearchBar } from './components/SearchBar';
+import { UserProvider } from './context/userContext';
+import style from './index.module.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <div className={style.App}>
+        <h1>My Users</h1>
+        <SearchBar />
+        <div className={style.userList}>
+          <List />
+        </div>
+      </div>
+    </UserProvider>
   );
 }
 
