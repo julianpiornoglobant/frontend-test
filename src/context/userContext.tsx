@@ -5,9 +5,9 @@ import { IUserProvider, IUserState } from 'src/interfaces/IUser'
 export const UserContext = createContext<IUserState>({} as IUserState)
 
 export function UserProvider({ children }: IUserProvider) {
-  const { users, filter, temp, editUser, showModal, tempEdit, setTempEdit, show } = useUser()
+  const { users, filter, temp, editUser, showModal, tempEdit, setTempEdit, show, sortBy } = useUser()
   return (
-    <UserContext.Provider value={{ users, filter, temp, editUser, showModal, tempEdit, setTempEdit, show }}>
+    <UserContext.Provider value={{ users, filter, temp, editUser, showModal, tempEdit, setTempEdit, show, sortBy }}>
       {children}
     </UserContext.Provider>
   )

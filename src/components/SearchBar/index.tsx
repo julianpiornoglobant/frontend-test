@@ -19,6 +19,7 @@ export const SearchBar = () => {
         className={style.search}
         type={searchInput.type}
         onChange={handleChange}
+        value={searchInput.value}
         placeholder="Search..." />
       <SearchIcon className={style.searchIcon} />
     </div>

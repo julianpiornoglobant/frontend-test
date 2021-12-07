@@ -19,5 +19,6 @@ export interface IUserState {
   showModal: () => boolean,
   tempEdit: IUser,
   setTempEdit: (user: IUser) => void,
-  show: boolean
+  show: boolean,
+  sortBy: (value: string) => void,
 }

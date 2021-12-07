@@ -15,8 +15,6 @@ export const useUser = () => {
   }, [])
 
   const filter = (value: string) => {
-    console.log(value);
-
     const usersFiltered = users.filter((user: IUser) => {
       return (
         user.name.toLowerCase().includes(value.toLowerCase()) ||
@@ -25,21 +23,29 @@ export const useUser = () => {
         user.phone.toLowerCase().includes(value.toLowerCase())
       )
     })
-    console.log(usersFiltered);
+    setTemp(usersFiltered)
+  }
 
+  const sortBy = (value: string) => {
+    const usersFiltered = [...users].sort((a: IUser, b: IUser): number => {
+      if (value === "Name") return a.name.localeCompare(b.name)
+      if (value === "Email") return a.email.localeCompare(b.email)
+      if (value === "Location") return a.address.localeCompare(b.address);
+      return 0
+    })
     setTemp(usersFiltered)
   }
 
   const editUser = (user: IUser) => {
     setUsers(users.map(u => (u.id === user.id ? user : u)))
     setTemp(users.map(u => (u.id === user.id ? user : u)))
-    console.log(temp);
-
   }
+
   const showModal = () => {
     setShow(!show)
     return show
   }
+
   return {
     users,
     filter,
@@ -48,6 +54,7 @@ export const useUser = () => {
     showModal,
     setTempEdit,
     tempEdit,
-    show
+    sortBy,
+    show,
   }
 }

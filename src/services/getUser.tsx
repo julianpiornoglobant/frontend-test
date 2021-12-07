@@ -1,7 +1,7 @@
 import { IUser } from "src/interfaces/IUser";
 
 export const getUsers = async (): Promise<IUser[]> => {
-  const response = await fetch("https://randomuser.me/api/?results=10&seed=abcde");
+  const response = await fetch("https://randomuser.me/api/?results=50&seed=abcde");
   const { results: users } = await response.json();
   const data = users.map((u: any): IUser => ({
     name: `${u.name.first} ${u.name.last}`,
