@@ -4,11 +4,11 @@ import { UserCard } from "../Card";
 import { Edit } from "../Edit";
 
 export const List = () => {
-  const { temp, tempEdit, show } = useContext(UserContext)
+  const { filteredAndSorted, tempEdit, show } = useContext(UserContext)
   return (
     <>
       {
-        temp.map(user => {
+        filteredAndSorted.map(user => {
           return <UserCard key={user.id} {...user} />
         })
       }

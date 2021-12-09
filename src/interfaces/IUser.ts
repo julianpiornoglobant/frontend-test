@@ -14,7 +14,7 @@ export interface IUserProvider {
 export interface IUserState {
   users: IUser[],
   filter: (value: string) => void,
-  temp: IUser[],
+  filteredAndSorted: IUser[],
   editUser: (user: IUser) => void,
   showModal: () => boolean,
   tempEdit: IUser,

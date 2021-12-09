@@ -5,12 +5,14 @@ import { getUsers } from "src/services/getUser"
 export const useUser = () => {
   const [users, setUsers] = useState([] as IUser[])
   const [temp, setTemp] = useState([] as IUser[])
+  const [filteredAndSorted, setFilteredAndSorted] = useState([] as IUser[])
   const [show, setShow] = useState(false)
   const [tempEdit, setTempEdit] = useState({} as IUser)
   useEffect(() => {
     getUsers().then(user => {
       setUsers(user)
       setTemp(user)
+      setFilteredAndSorted(user)
     })
   }, [])
 
@@ -24,16 +26,17 @@ export const useUser = () => {
       )
     })
     setTemp(usersFiltered)
+    setFilteredAndSorted(usersFiltered)
   }
 
   const sortBy = (value: string) => {
-    const usersFiltered = [...users].sort((a: IUser, b: IUser): number => {
+    const usersFiltered = [...temp].sort((a: IUser, b: IUser): number => {
       if (value === "Name") return a.name.localeCompare(b.name)
       if (value === "Email") return a.email.localeCompare(b.email)
       if (value === "Location") return a.address.localeCompare(b.address);
       return 0
     })
-    setTemp(usersFiltered)
+    setFilteredAndSorted(usersFiltered)
   }
 
   const editUser = (user: IUser) => {
@@ -56,5 +59,6 @@ export const useUser = () => {
     tempEdit,
     sortBy,
     show,
+    filteredAndSorted
   }
 }
